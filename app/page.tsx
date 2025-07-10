@@ -9,7 +9,7 @@ import {
   Input,
   Inputs,
 } from './components'
-import { greenRed, greenBlue, blueRed } from './colorFunctions'
+import { greenRed, greenBlue, blueRed } from './colorfulFunctions'
 
 const ColorName = ({ colorName }) => (
   <div
