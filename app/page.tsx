@@ -11,7 +11,7 @@ import {
 } from './components'
 import { greenRed, greenBlue, blueRed } from './colorfulFunctions'
 
-const ColorName = ({ colorName }) => (
+const ColorName = ({ colorName }: { colorName: string }) => (
   <div
     style={{
       width: '100%',
@@ -21,23 +21,25 @@ const ColorName = ({ colorName }) => (
     {colorName}
   </div>
 )
-const isValidHexChar = (char: any) => /^[0-9a-f]$/i.test(char)
+const isValidHexChar = (char: string) => /^[0-9a-f]$/i.test(char)
 
 export default function Home() {
   const [r, setR] = useState('f')
   const [g, setG] = useState('7')
   const [b, setB] = useState('a')
-  const handleInput = (setter: any) => (e) => {
-    const val = e.target.value.toLowerCase()
-    if (val === '') {
-      setter('0')
-      return
+  const handleInput =
+    (setter: React.Dispatch<React.SetStateAction<string>>) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value.toLowerCase()
+      if (val === '') {
+        setter('0')
+        return
+      }
+      if (val.length === 1 && isValidHexChar(val)) {
+        setter(val)
+      }
     }
-    if (val.length === 1 && isValidHexChar(val)) {
-      setter(val)
-    }
-  }
-  const hexToDecimal = (hex: any) => parseInt(hex, 16) * 17
+  const hexToDecimal = (hex: string) => parseInt(hex, 16) * 17
 
   console.log(r, g, b)
 
@@ -91,30 +93,6 @@ export default function Home() {
           />
         </div>
         <ColorsContainer>
-          {/* <ColorName colorName='blues' />
-          {blues().map((color, idx) => (
-            <ColorBox key={idx} color={color} title={color}>
-              {color}
-            </ColorBox>
-          ))}
-          <ColorName colorName='greens' />
-          {greens().map((color, idx) => (
-            <ColorBox key={idx} color={color} title={color}>
-              {color}
-            </ColorBox>
-          ))}
-          <ColorName colorName='reds' />
-          {reds().map((color, idx) => (
-            <ColorBox key={idx} color={color} title={color}>
-              {color}
-            </ColorBox>
-          ))}
-          <ColorName colorName='greenBlues' />
-          {greenBlue().map((color, idx) => (
-            <ColorBox key={idx} color={color} title={color}>
-              {color}
-            </ColorBox>
-          ))} */}
           <ColorName colorName='blue-red' />
           {blueRed().map((color, idx) => (
             <ColorBox key={idx} color={color} title={color}>
@@ -122,7 +100,7 @@ export default function Home() {
             </ColorBox>
           ))}
           <ColorName colorName='green-blue' />
-          {greenBlue().map((color: any, idx: any) => (
+          {greenBlue().map((color: string, idx: number) => (
             <ColorBox key={idx} color={color} title={color}>
               {color}
             </ColorBox>
