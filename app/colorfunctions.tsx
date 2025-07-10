@@ -15,7 +15,21 @@ const hexDigits = [
   'd',
   'e',
   'f',
-].reverse()
+] //.reverse()
+
+export const greenRed = (limit = 16 * 16) => {
+  const colors = []
+  let count = 0
+
+  for (let g of hexDigits) {
+    for (let r of hexDigits) {
+      const color = `#${r}${g}${0}`
+      colors.push(color)
+      if (++count >= limit) return colors
+    }
+  }
+  return colors
+}
 
 export const greenBlue = (limit = 16 * 16) => {
   const colors = []
@@ -30,14 +44,13 @@ export const greenBlue = (limit = 16 * 16) => {
   }
   return colors
 }
-
-export const greenRed = (limit = 16 * 16) => {
+export const blueRed = (limit = 16 * 16) => {
   const colors = []
   let count = 0
 
-  for (let g of hexDigits) {
+  for (let b of hexDigits) {
     for (let r of hexDigits) {
-      const color = `#${r}${g}${0}`
+      const color = `#${r}${0}${b}`
       colors.push(color)
       if (++count >= limit) return colors
     }

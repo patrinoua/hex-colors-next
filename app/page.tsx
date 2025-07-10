@@ -1,7 +1,15 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import { ColorBox, ExperimentColorBox, Input, Inputs } from './components'
+import {
+  ColorBox,
+  ColorCircle,
+  ColorsContainer,
+  ExperimentColorBox,
+  Input,
+  Inputs,
+} from './components'
+import { greenRed, greenBlue, blueRed } from './colorFunctions'
 
 const ColorName = ({ colorName }) => (
   <div
@@ -49,15 +57,21 @@ export default function Home() {
                 onChange={handleInput(setR)}
               />
             </label>
-            <label>
-              G:{' '}
-              <Input
-                type='text'
-                maxLength={1}
-                value={g}
-                onChange={handleInput(setG)}
-              />
-            </label>
+            <ColorCircle color={`#${r}00`} />
+
+            <div className='flex flex-col items-center justify-items-center'>
+              <label>
+                G:{' '}
+                <Input
+                  type='text'
+                  maxLength={1}
+                  value={g}
+                  onChange={handleInput(setG)}
+                />
+              </label>
+            </div>
+            <ColorCircle color={`#0${g}0`} />
+            {g}
             <label>
               B:{' '}
               <Input
@@ -67,6 +81,8 @@ export default function Home() {
                 onChange={handleInput(setB)}
               />
             </label>
+            <ColorCircle color={`#00${b}`} />
+            {b}
           </Inputs>
           <ExperimentColorBox
             r={hexToDecimal(r)}
@@ -74,7 +90,53 @@ export default function Home() {
             b={hexToDecimal(b)}
           />
         </div>
+        <ColorsContainer>
+          {/* <ColorName colorName='blues' />
+          {blues().map((color, idx) => (
+            <ColorBox key={idx} color={color} title={color}>
+              {color}
+            </ColorBox>
+          ))}
+          <ColorName colorName='greens' />
+          {greens().map((color, idx) => (
+            <ColorBox key={idx} color={color} title={color}>
+              {color}
+            </ColorBox>
+          ))}
+          <ColorName colorName='reds' />
+          {reds().map((color, idx) => (
+            <ColorBox key={idx} color={color} title={color}>
+              {color}
+            </ColorBox>
+          ))}
+          <ColorName colorName='greenBlues' />
+          {greenBlue().map((color, idx) => (
+            <ColorBox key={idx} color={color} title={color}>
+              {color}
+            </ColorBox>
+          ))} */}
+          <ColorName colorName='blue-red' />
+          {blueRed().map((color, idx) => (
+            <ColorBox key={idx} color={color} title={color}>
+              {color}
+            </ColorBox>
+          ))}
+          <ColorName colorName='green-blue' />
+          {greenBlue().map((color: any, idx: any) => (
+            <ColorBox key={idx} color={color} title={color}>
+              {color}
+            </ColorBox>
+          ))}
+          <ColorName colorName='green-red' />
+          {greenRed().map((color, idx) => (
+            <ColorBox key={idx} color={color} title={color}>
+              {color}
+            </ColorBox>
+          ))}
+        </ColorsContainer>
+        <p className='self-center'> (for Martha ☺️)</p>
       </main>
+
       <footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
         <a
           className='rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]'
