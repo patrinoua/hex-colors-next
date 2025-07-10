@@ -28,7 +28,7 @@ export const ColorCircle = styled.div`
   // border: 1px solid #ccc;
 `
 
-export const ColorName = ({ colorName }) => (
+export const ColorName = ({ colorName }: { colorName: string }) => (
   <div
     style={{
       width: '100%',
@@ -53,7 +53,14 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 2px; /* εδώ γίνεται η στρογγυλάδα */
 `
-export const ExperimentColorBox = styled.div`
+
+type RGBProps = {
+  r: string | number
+  g: string | number
+  b: string | number
+}
+
+export const ExperimentColorBox = styled.div<RGBProps>`
   width: 150px;
   height: 150px;
   background-color: rgb(

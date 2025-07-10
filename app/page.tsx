@@ -4,6 +4,7 @@ import { useState } from 'react'
 import {
   ColorBox,
   ColorCircle,
+  ColorName,
   ColorsContainer,
   ExperimentColorBox,
   Input,
@@ -11,16 +12,6 @@ import {
 } from './components'
 import { greenRed, greenBlue, blueRed } from './colorfulFunctions'
 
-const ColorName = ({ colorName }: { colorName: string }) => (
-  <div
-    style={{
-      width: '100%',
-      marginTop: '20px',
-    }}
-  >
-    {colorName}
-  </div>
-)
 const isValidHexChar = (char: string) => /^[0-9a-f]$/i.test(char)
 
 export default function Home() {
