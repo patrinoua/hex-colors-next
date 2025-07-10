@@ -1,3 +1,8 @@
+https://hex-colors-next.vercel.app/
+https://vercel.com/patrinouas-projects/hex-colors-next/HNwCkvzPDiTS6XBTqVudzrov8kDQ
+https://vercel.com/patrinouas-projects/hex-colors-next/deployments
+http://172.20.10.2:3000/
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
