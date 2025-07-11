@@ -1,7 +1,14 @@
-https://hex-colors-next.vercel.app/
-https://vercel.com/patrinouas-projects/hex-colors-next/HNwCkvzPDiTS6XBTqVudzrov8kDQ
-https://vercel.com/patrinouas-projects/hex-colors-next/deployments
+# Experiment with short format hex colors
+
+<img width="919" height="922" alt="colors" src="https://github.com/user-attachments/assets/6d0c00df-744b-4d3c-bb52-a21b5a2569a4" />
+
+Try it here: [https://hex-colors-next.vercel.app/](https://hex-colors-next.vercel.app/)
+
 http://172.20.10.2:3000/
+
+https://vercel.com/patrinouas-projects/hex-colors-next/deployments
+
+- - - 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
